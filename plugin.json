@@ -4,11 +4,17 @@
     "main": "index.html",
     "logo": "logo.png",
 	"version": "0.0.1",
+	"author": "onigiri",
 	"features": [
 		{
-		  "code": "fl",
-		  "explain": "hello world",
-			"cmds":["hello", "你好"]
+			"code": "send",
+			"explain": "type text send to flomo",
+			"cmds":[{
+				"type": "regex",
+				"label": "直接发送至 flomo",
+				"match": "/^fl(.*)/i"
+			}],
+			"icon": "logo.png"
 		}
 	]
 }
