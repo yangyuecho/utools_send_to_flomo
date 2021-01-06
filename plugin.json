@@ -1,0 +1,14 @@
+{
+	"pluginName": "sendToFlomo",
+	"description": "发送至 flomo",
+    "main": "index.html",
+    "logo": "logo.png",
+	"version": "0.0.1",
+	"features": [
+		{
+		  "code": "fl",
+		  "explain": "hello world",
+			"cmds":["hello", "你好"]
+		}
+	]
+}
