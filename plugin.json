@@ -3,16 +3,17 @@
 	"description": "发送至 flomo",
     "main": "index.html",
     "logo": "logo.png",
-	"version": "0.0.1",
+	"version": "0.0.1",	
 	"author": "onigiri",
 	"features": [
 		{
-			"code": "send",
+			"code": "copy",
 			"explain": "type text send to flomo",
 			"cmds":[{
-				"type": "regex",
 				"label": "直接发送至 flomo",
-				"match": "/^fl(.*)/i"
+				"type": "regex",
+                "match": "/.*?/",
+                "minNum": 1
 			}],
 			"icon": "logo.png"
 		}

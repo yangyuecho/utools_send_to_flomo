@@ -2,13 +2,13 @@
 <style>
     #id-div-input {
         border: 2px solid #e8e8e8;
-        width: 60%;
+        width: 85%;
         min-width: 400px;
         min-height: 100px;
         border-radius: 5px;
     }
     #id-div-api {
-        width: 60%;
+        width: 85%;
         min-width: 400px;
         margin: 10px 0px;
     }
@@ -26,6 +26,8 @@
         border: 1px solid transparent;
         outline: none;
         margin: 10px;
+        background: #55BB8E;
+        border-color: #55BB8E;
     }
 
     .button span{
@@ -39,12 +41,6 @@
         cursor: not-allowed;
     }
 
-    .button-normal {
-        background: #55BB8E;
-        border-color: #55BB8E;
-        /* cursor: not-allowed; */
-        
-    }
 
     textarea {
         max-width: 92%;
@@ -68,12 +64,14 @@
     </div>
     <div id="id-div-input">
         <div>
-        <textarea placeholder="现在的想法是..."></textarea>
+        <textarea id="id-textarea-thought" placeholder="现在的想法是..."></textarea>
         </div>
         <div>
             <button class="button button-disabled"><span>发送</span></button>
         </div>   
     </div>
 </div>
+<script src="utils.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
