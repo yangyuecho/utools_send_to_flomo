@@ -7,17 +7,39 @@
         min-height: 100px;
         border-radius: 5px;
     }
+
     #id-div-api {
         width: 85%;
         min-width: 400px;
         margin: 10px 0px;
     }
 
+    #id-div-reinput {
+        margin: 14px 0px;
+    }
+
+    #id-div-reinput span {
+        cursor: pointer;
+    }
+
+    #id-div-reinput span:hover {
+        color: #55BB8E
+    }
+
     #id-div-api input {
-        width: 80;
-        width: 90%;
+        width: 95%;
         border: 1px solid #e8e8e8;
         padding: 5px 15px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    span {
+        font-size: 14px;
+        margin: 10px 15px;
+        color: #7b7b7b;
     }
 
     .button {
@@ -48,8 +70,6 @@
         outline: none;
         border: 1px solid transparent;
         margin: 15px 10px;
-        /* text-align: center; */
-        /* display: block; */
         overflow: hidden;
         display: inline-block;
         vertical-align: middle;
@@ -60,7 +80,12 @@
 <body>
 <div id="id-div-content">
     <div id="id-div-api">
-        <input placeholder="请输入您的 flomo 专属记录 API"></input>
+        <div id="id-div-api-input">
+            <input placeholder="请输入您的 flomo 专属记录 API"></input>
+        </div>
+        <div id="id-div-reinput" class="hidden">
+            <span>点此重新输入您的 flomo 专属记录 API</input>
+        </div>
     </div>
     <div id="id-div-input">
         <div>
