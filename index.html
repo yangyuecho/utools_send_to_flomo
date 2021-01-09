@@ -1,6 +1,79 @@
 <!DOCTYPE html>
+<style>
+    #id-div-input {
+        border: 2px solid #e8e8e8;
+        width: 60%;
+        min-width: 400px;
+        min-height: 100px;
+        border-radius: 5px;
+    }
+    #id-div-api {
+        width: 60%;
+        min-width: 400px;
+        margin: 10px 0px;
+    }
+
+    #id-div-api input {
+        width: 80;
+        width: 90%;
+        border: 1px solid #e8e8e8;
+        padding: 5px 15px;
+    }
+
+    .button {
+        margin: 0;
+        padding: 5px 15px;
+        border: 1px solid transparent;
+        outline: none;
+        margin: 10px;
+    }
+
+    .button span{
+        color: #FFF;
+        font-size: 12px;
+    }
+
+    .button-disabled {
+        background: #AADDC6;
+        border-color: #AADDC6;
+        cursor: not-allowed;
+    }
+
+    .button-normal {
+        background: #55BB8E;
+        border-color: #55BB8E;
+        /* cursor: not-allowed; */
+        
+    }
+
+    textarea {
+        max-width: 92%;
+        min-width: 94%;
+        outline: none;
+        border: 1px solid transparent;
+        margin: 15px 10px;
+        /* text-align: center; */
+        /* display: block; */
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+</style>
 <html>
 <body>
-hello world
+<div id="id-div-content">
+    <div id="id-div-api">
+        <input placeholder="请输入您的 flomo 专属记录 API"></input>
+    </div>
+    <div id="id-div-input">
+        <div>
+        <textarea placeholder="现在的想法是..."></textarea>
+        </div>
+        <div>
+            <button class="button button-disabled"><span>发送</span></button>
+        </div>   
+    </div>
+</div>
 </body>
 </html>
