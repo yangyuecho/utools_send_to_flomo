@@ -1,6 +1,6 @@
 const hiddenClass = "hidden"
 const db_write_api_name = "flomo_write_api"
-const write_api_data = {_id: db_write_api_name}
+let write_api_data = {_id: db_write_api_name}
 
 const checkApiStatus = () => {
     let apiStatus = getApiStatus()
@@ -9,6 +9,7 @@ const checkApiStatus = () => {
     } else {
         StyleApiInputHasNot()
     }
+    setButtonStyle()
 }
 
 const StyleApiInputHas = () => {
@@ -29,7 +30,6 @@ const EventSaveApi = () => {
         if (key == "Enter" && value.length > 0) {          
             setApiValue(value)
             checkApiStatus()
-            setButtonStyle()
         }
     })
 }
@@ -42,12 +42,55 @@ const EventReinputApi = () => {
     })
 }
 
-const EventTextAreaAutoHeight = () => {
+const EventTextAreaInput= () => {
     let element = e("#id-textarea-thought")
     element.addEventListener("keydown", function(event) {
+        // auto height
         element.style.height = 'auto';
         element.style.height = (this.scrollHeight) + 10 + 'px';
         setButtonStyle()
+        log(event)
+        // cmd + enter to send
+        if (event.key === "Enter" && event.metaKey) {
+            sendFlomo()
+        }
+    })
+}
+
+const apiSendFlomo = function(data, callback) {
+    let path = getApiValue()
+    ajax('POST', path, data, callback)
+}
+
+const initInputStatus = () => {
+    e("#id-textarea-thought").value = "#utools\r\n"
+    getApiValue()
+    checkApiStatus()
+}
+
+const sendFlomo = () => {
+    let content = e("#id-textarea-thought").value
+    let data = {
+        content: content,
+    }
+    let apiStatus = getApiStatus()
+    if (content.length >= 1 && apiStatus) {
+        apiSendFlomo(data, (response) => {
+            // log(response)
+            if (response.code === 0) {
+                initInputStatus()
+                alert(response.message)
+            } else {
+                alert(response.message)
+            }
+        })
+    }
+}
+
+const EventSendFlomo = () => {
+    let element = e("#id-div-input button")
+    element.addEventListener("click", function(event) {
+        sendFlomo()
     })
 }
 
@@ -58,11 +101,13 @@ const setApiValue = (value) => {
 
 const getApiValue = () => {
     write_api_data = utools.db.get(db_write_api_name)
-    return write_api_data.dataa
+    // log('get', db_write_api_name, write_api_data)
+    return write_api_data.data
 }
 
 const getApiStatus = () => {
     let flag = typeof(write_api_data.data) == "string"
+    // log("type", flag)
     if (flag) {
         flag = flag && write_api_data.data.length > 0
     }
@@ -75,7 +120,6 @@ const pasteIntoTextArea = () => {
         console.log('用户进入插件', code, type, payload)   
         let content = `#utools\r\n${payload}`
         textarea.value = content
-        setButtonStyle()
         getApiValue()
         checkApiStatus()
     })
@@ -96,7 +140,8 @@ const setButtonStyle = () => {
 const bindEvents = () => {
     EventSaveApi()
     EventReinputApi()
-    EventTextAreaAutoHeight()
+    EventTextAreaInput()
+    EventSendFlomo()
 }
 
 const _main = () => {
