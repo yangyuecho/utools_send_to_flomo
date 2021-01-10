@@ -1,5 +1,2 @@
-todo:
-- textarea auto height (done)
-- check whether save api (done)
-- post data (done)
-- refresh page status (done)
+1. 输入 memo 打开快捷输入窗口
+2. 复制文字打开 utools 即可打开快捷输入窗口, 并将复制文字粘贴至输入框中

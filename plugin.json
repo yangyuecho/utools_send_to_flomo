@@ -3,7 +3,7 @@
 	"description": "发送至 flomo",
     "main": "index.html",
     "logo": "logo.png",
-	"version": "0.0.1",	
+	"version": "0.1.0",	
 	"author": "onigiri",
 	"features": [
 		{
@@ -14,8 +14,12 @@
 				"type": "regex",
                 "match": "/.*?/",
                 "minNum": 1
-			}],
-			"icon": "logo.png"
+			}]
+		},
+		{
+			"code": "open",
+			"explain": "open flomo temporary window",
+			"cmds":["memo"]
 		}
 	]
 }

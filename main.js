@@ -117,8 +117,11 @@ const getApiStatus = () => {
 const pasteIntoTextArea = () => {
     let textarea = e("#id-textarea-thought")
     utools.onPluginEnter(({code, type, payload, optional}) => {     
-        console.log('用户进入插件', code, type, payload)   
-        let content = `#utools\r\n${payload}`
+        console.log('用户进入插件', code, type, payload)
+        let content = `#utools\r\n`
+        if (code == "copy") {
+            content += `${payload}`
+        }
         textarea.value = content
         getApiValue()
         checkApiStatus()
