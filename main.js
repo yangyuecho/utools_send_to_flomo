@@ -15,6 +15,7 @@ const checkApiStatus = () => {
 const StyleApiInputHas = () => {
     e("#id-div-reinput").classList.remove(hiddenClass)
     e("#id-div-api-input").classList.add(hiddenClass)
+    e("#id-div-api-input input").value = write_api_data.data
 }
 
 const StyleApiInputHasNot = () => {
@@ -100,7 +101,10 @@ const setApiValue = (value) => {
 }
 
 const getApiValue = () => {
-    write_api_data = utools.db.get(db_write_api_name)
+    db_data = utools.db.get(db_write_api_name)
+    if (db_data !== null) {
+        write_api_data = db_data
+    }
     // log('get', db_write_api_name, write_api_data)
     return write_api_data.data
 }
@@ -126,6 +130,7 @@ const pasteIntoTextArea = () => {
         getApiValue()
         checkApiStatus()
     })
+    textarea.focus()
 }
 
 const setButtonStyle = () => {
