@@ -65,6 +65,7 @@ const apiSendFlomo = function(data, callback) {
 
 const initInputStatus = () => {
     e("#id-textarea-thought").value = "#utools\r\n"
+    e("#id-textarea-thought").style.height = "100%"
     getApiValue()
     checkApiStatus()
 }
